@@ -1,0 +1,27 @@
+<main class="main">
+  <div class="container">
+    <form class="form-check">
+          <div class="card shadow-sm" *ngIf="!complete">
+            <form [formGroup]="signupForm">
+              <div class="form-check__fields">
+                <div class="form-group__password">
+                  <label for="password" class="form-group__password-label"><strong>Password</strong></label>
+                  <input
+                    type="password"
+                    class="form-group__password-item"
+                    formControlName="password"
+                    placeholder="Choose a password"
+                    autocomplete="new-password"
+                    [ngClass]="{ 'is-valid': (submitted || f.password.dirty) && !f.password.errors, 'is-invalid': (submitted || f.password.dirty) && f.password.errors }">
+                </div>
+                <div class="form-group__password-errors" *ngIf="f.password.errors">
+                  <span class="form-group__password-error" *ngIf="f.password.errors?.['required']"><strong>Password is required</strong></span>
+                  <span class="form-group__password-error" *ngIf="f.password.errors?.['minlength']"><strong>Password must be at least 8 characters long</strong></span>
+                </div>
+              </div>
+                <app-password [passwordToCheck]="signupForm.value.password" (passwordStrength)="onPasswordStrengthChanged($event)"></app-password>
+              </form>
+          </div>
+    </form>
+  </div>
+</main>

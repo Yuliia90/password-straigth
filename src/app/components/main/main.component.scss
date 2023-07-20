@@ -1,0 +1,39 @@
+.main {
+  height: 80vh;
+  display: flex;
+  margin-top: 50px;
+}
+.container {
+  margin: 0 auto;
+}
+.form-check {
+  max-width: 600px;
+  max-height: 320px;
+  box-shadow: 0px 10px 20px rgb(0, 0, 0, .6);
+  border-radius: 12px;
+  padding: 30px;
+}
+.form-group__password {
+  display: flex;
+  column-gap: 80px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  &-item {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .6);
+    transition: all 0.2s linear;
+  }
+  &-item:hover {
+    box-shadow: 0px 10px 20px rgb(30, 68, 100);
+  }
+  &-errors {
+    display: flex;
+    justify-content: end;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+}

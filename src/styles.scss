@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+html { box-sizing: border-box}
+body{
+  margin: 0;
+  font-family: 'Cabin', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+

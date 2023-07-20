@@ -1,0 +1,21 @@
+.header {
+    background-color: #1f3950;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  &__logo-img {
+    padding-top: 5px;
+    height: 70px;
+    width: 70px;
+    text-shadow: 0 4px 19px rgb(255, 255, 255);
+  }
+
+  &__title-text {
+    color: #dddddd;
+    margin-left: 50px;
+    text-shadow: 0 12px 19px rgb(27, 99, 152);
+    text-transform: uppercase;
+  }
+
+}
