@@ -7,16 +7,19 @@
                 <div class="form-group__password">
                   <label for="password" class="form-group__password-label"><strong>Password</strong></label>
                   <input
-                    type="password"
+                    id="password"
+                    type="text"
                     class="form-group__password-item"
                     formControlName="password"
                     placeholder="Choose a password"
                     autocomplete="new-password"
-                    [ngClass]="{ 'is-valid': (submitted || f.password.dirty) && !f.password.errors, 'is-invalid': (submitted || f.password.dirty) && f.password.errors }">
+                    [ngClass]="{ 'is-valid': (submitted || form.password.dirty) && !form.password.errors, 'is-invalid': (submitted || form.password.dirty) && form.password.errors }">
                 </div>
-                <div class="form-group__password-errors" *ngIf="f.password.errors">
-                  <span class="form-group__password-error" *ngIf="f.password.errors?.['required']"><strong>Password is required</strong></span>
-                  <span class="form-group__password-error" *ngIf="f.password.errors?.['minlength']"><strong>Password must be at least 8 characters long</strong></span>
+                <div class="form-group__password-errors" *ngIf="form.password.errors">
+                  <span class="form-group__password-error" *ngIf="form.password.errors?.['required']"><strong>Password is required</strong></span>
+                  <span class="form-group__password-error" *ngIf="form.password.errors?.['lessThenEight']"><strong>Please use more then 8 symbols and capital letters</strong></span>
+                  <span class="form-group__password-error" *ngIf="form.password.errors?.['upperLetters']"><strong>Please use numbers</strong></span>
+                  <span class="form-group__password-error" *ngIf="form.password.errors?.['numbers']"><strong>Please enter the special symbols</strong></span>
                 </div>
               </div>
                 <app-password [passwordToCheck]="signupForm.value.password" (passwordStrength)="onPasswordStrengthChanged($event)"></app-password>

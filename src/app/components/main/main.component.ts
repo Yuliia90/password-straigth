@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {validatePassword} from "../../shared/validators/password-validators";
 
 @Component({
   selector: 'app-main',
@@ -7,39 +8,23 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  submitted = false;
-  working = false;
-  complete = false;
-  strongPassword = false;
+  submitted: boolean = false;
+  complete: boolean = false;
+  strongPassword: boolean = false;
 
   signupForm = new FormGroup({
     password: new FormControl(null, [
-      Validators.minLength(8),
       Validators.required,
+      validatePassword
     ]),
   });
 
-  get f() {
+  get form() {
     return this.signupForm.controls;
   }
 
-  onPasswordStrengthChanged(event: boolean) {
+  onPasswordStrengthChanged(event: boolean): void {
     this.strongPassword = event;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.signupForm.invalid) {
-      return;
-    }
-
-    this.working = true;
-    setTimeout(() => {
-      this.signupForm.reset();
-      this.working = false;
-      this.complete = true;
-    }, 1000);
   }
 }
 
